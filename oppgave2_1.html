@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Oppgave 1</title>
+        <meta charset="utf-8"/>
+    </head>
+    
+    <body>
+        <ol>
+        
+        </ol>
+    </body>
+    
+    <script type="text/javascript">
+        let list = document.querySelector("ol");
+        let matvarer = ["ost", "paprika", "brød", "kaviar"];
+        matvarer.unshift("brie");
+        console.log(matvarer[matvarer.length - 1]);
+        
+        for (const n in matvarer) {
+            matvarer[n] = (matvarer[n] === "brød") ? "knekkebrød" : matvarer[n];
+        }
+        
+        console.log(matvarer);
+    </script>
+
+</html>

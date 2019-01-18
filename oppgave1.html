@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Oppgave 1</title>
+        <meta charset="utf-8"/>
+    </head>
+    
+    <body>
+        <ol>
+        
+        </ol>
+    </body>
+    
+    <script type="text/javascript">
+        let list = document.querySelector("ol");
+        let handleListe = ["ost", "brød", "paprika", "kaviar"];
+        
+        for (const vare of handleListe) {
+            list.innerHTML += `<li>${vare}</li>`;
+        }
+        
+        for (const i = 0; i < handleListe.length; i++) {
+            console.log(handleListe[i]);
+        }
+    </script>
+
+</html>

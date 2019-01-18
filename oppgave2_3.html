@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 5</title>
+  </head>
+  <body>
+      <main>
+            <div class="slide-show">
+              <button type="button" id="previous" onclick="updateSlideShow(0)">Tilbake</button>
+              <img id="selected-image" class="sp" src="bilder/fest.jpg" onclick="updatePartyInfo('sp')"/>
+              <button type="button" id="next" onclick="updateSlideShow(1)">Neste</button>
+            </div>
+      </main>
+
+    <script type="text/javascript">
+        // Deklarer informasjons elementer
+        const imageSlideShow = document.querySelector("#selected-image");
+        const next = document.querySelector("#next");
+        const previous = document.querySelector("#previous");
+        
+
+        // Array av bildenes src
+        const imageFolder = "bilder/";
+        let bilder = ["fest.jpg", "fjell.jpg", "strand.jpg", "tue.jpg", "tur.jpg"];
+
+        // Indeks som blir oppdatert basert på knappene man trykker
+        var slideShowPos = 0;
+        
+        const sortFunction = (string1, string2) => {
+            string1 = string1.toLowerCase();
+            string2 = string2.toLowerCase();
+            
+            if (string2 === string1) {
+                return 0;
+            } else if (string1 > string2) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+        
+        // Sorter alfabetisk
+        bilder.sort(sortFunction);
+
+        const updateSlideShow = (action) => { // action 1 : neste, action 2: tilbake
+            console.log(action)
+            if (action === 1) { // Hvis det er neste
+                // Hvis posisjonen ikke er på den siste
+                if (slideShowPos !== bilder.length - 1) {
+                    slideShowPos++;
+                    imageSlideShow.src = imageFolder + bilder[slideShowPos];
+                    console.log(slideShowPos);
+                }
+            } else { // Hvis det er tilbake
+                // Hvis posisjonen ikke er på den første
+                if (slideShowPos !== 0) {
+                    slideShowPos--;
+                    imageSlideShow.src = imageFolder + bilder[slideShowPos];
+                }
+            }
+        }
+
+    </script>
+  </body>
+</html>

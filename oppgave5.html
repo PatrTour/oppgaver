@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Oppgave 5</title>
+        <meta charset="utf-8"/>
+    </head>
+    
+    <body>
+        <input type="text" id="name" placeholder="Navn"/>
+        <input type="number" id="numFilms" placeholder="Antall filmer"/>
+        <button id="enter">Submit</button>
+        
+        <p id="total"></p>
+        
+        <ol>
+        </ol>
+    </body>
+    
+    <script type="text/javascript">
+        let submit = document.querySelector("#enter");
+        let inputs = document.querySelectorAll("input");
+        let totalText = document.querySelector("#total");
+        let list = document.querySelector("ol");
+        
+        let persons = [];
+        
+        submit.onclick = () => {
+            let obj = {
+                name: inputs[0].value,
+                numFilms: inputs[1].value
+            }
+            
+            persons.push(obj);
+            update();
+        }
+        
+        const update = () => {
+            list.innerHTML = null;
+            let sum = 0;
+            
+            persons.sort((a,b) => a.numFilms - b.numFilms);
+            persons.reverse();
+            for (const obj of persons) {
+                list.innerHTML += `<li>${obj.name} | Number of films: ${obj.numFilms}</li>`;
+                sum += Number(obj.numFilms);
+            }
+            
+            totalText.innerHTML = sum;
+        }
+    </script>
+
+</html>

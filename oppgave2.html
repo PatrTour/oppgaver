@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Oppgave 2</title>
+        <meta charset="utf-8"/>
+    </head>
+    
+    <body>
+        <ol>
+        
+        </ol>
+    </body>
+    
+    <script type="text/javascript">
+        let list = document.querySelector("ol");
+        let bokListe = ["Illad and odessy", "Hitchhikers guide to the galaxy", "The fundation series", "Gone girl"];
+        
+        const sortFunction = (string1, string2) => {
+            string1 = string1.toLowerCase();
+            string2 = string2.toLowerCase();
+            
+            if (string2 === string1) {
+                return 0;
+            } else if (string1 > string2) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+        
+        bokListe.sort(sortFunction);
+        
+        
+        
+        for (const bok of bokListe) {
+            list.innerHTML += `<li>${bok}</li>`;
+        }
+        
+        
+    </script>
+
+</html>
